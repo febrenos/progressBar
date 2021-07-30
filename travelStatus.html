@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress</title>
+</head>
+<style> 
+/* 1 */
+.stepper-wrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  /* border-bottom: 2px solid #ccc; */
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  /* border-bottom: 5px solid #ccc; */
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  margin-bottom: 6px;
+}
+
+.title-icon {
+  font-weight: bold;
+}
+
+.stepper-item.completed .step-counter {
+  background-color: #4bb844;
+}
+
+.stepper-item.completed::after {
+  position: absolute;
+  content: "";
+  /* border-bottom: 5px solid #4bb543; */
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
+/* 1*/
+</style>
+<body>
+    <!-- 1 -->
+    <div class="stepper-wrapper">
+        <div class="stepper-item completed">
+          <div class="step-counter"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABW0lEQVRIS72V4TFFMRCFv1cJKkAFlEAFdIBKUAEqQAdUgA6ohPlmkjebvHuTm+HZmfzIvZtzdk92Nyu2bKst47OE4Bw4Ag7SMqb3tJ6A51aQLYIT4BrY7WT5CVwBkm3YHMENcJG8vwD3LylqP5vNMXAJ7CQ/fSQqbIoggnvAfcskMVPtNpGu/WsCZXlMfw9DxL1aMKO35HQa5aoJ1NOU5yL/TiBTmedMxNjLEUVHq+UOUPO5i20RiJkDXGcRCe6Bs0b0PZn8n7N4AAy46ANrex8Y0b4mzXchljgFQS99/Yd9okTDh2c0K3AiwRKJekFkiT7yWBm95B5B85JzkxV1XMnQI2iWaazj3zRa0Uf/PirMIg47NXWA/dmwy0CRRF3dv1bj2kfIAPJY2ZikdaPVUXrpAud5P5eFmks09OBEMIlc1rijRLPO7RtBJ4GnpumSYTbss+TRHwaNB34A+HBWGZ6yAQ8AAAAASUVORK5CYII="/></div>
+          <div class="title-icon">Information</div>
+          <div class="">20/10/2021</div>
+          <div class="">20/10/2021</div>
+          <div class="">20/10/2021</div>
+        </div>
+        <div class="stepper-item completed">
+          <div class="step-counter"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABXUlEQVRIS9WV/zFFMRCFv1cBKkAFdIAKUAEdoAM6oAKjAjpABXRACXRgvplkZl/e5r48P/6Qmcydm2TP2Zw9e++MPx6zP8bnXxGsAx+tIr9xg13gHtgCboDzSPJTAsEfAbOvYxt4ry8twSmwVw54yPkJvCZmyMA91iXwigKtTTjrqez5VIqYuVtLJTLAQOcUUZbDHaACc6NXg1WJUnCZRopsVpfAZkc6rbnRk3WEwFgL+jJRmy7OCEHPLZFvzjlTfSBYtOQIuHgHQHVYt8hqfVt2JXEeJVa0oI6TgHQMPGQSRomWFdP46pb90sEV86oYYYEjq4HB9sFhc7q1opLY9WmD1dipIsfO9pNhIeOIt3gGfB+6QTx0DZyVhSwZ67QDfJvAW7wVgswp0RipGiN9oDusxwXgjdqhfHazll5ZIgPUVmCfC3+ssq5U2d7Qt0iS9HeYZdyujUg0gtM98wUmnTwZzCs2DwAAAABJRU5ErkJggg=="/></div>
+          <div class="title-icon">Travel</div>
+          <div class="">BSB-GRU 1</div>
+          <div class="">BSB-CGH 2</div>
+          <div class="">GRU-BSB 3</div>
+        </div>
+        <div class="stepper-item active">
+          <div class="step-counter"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA4UlEQVRIS+2V3RFBMRCFv9uBFlSAClAJKkEldIIOqEALOmCOubkTSe7Nj8kT+5hszre7c3bSUDmayvrkAEbAqS1oCTxSiksFGPFpK3oFkiCpgCOwcirW2SbWRQogJG50o5AYYAdsI1XuAeUFYwiwBg6xEbT3GpW68aIPkCNuRIOQEEBOkR3lnJyQbeUsOawLF1AqbgQ9iA1QxfeCyt0uBRmbRbQBam2SM5OBXGnNdF8LcAPeW9/nomdhJ57ebwHcbkNj/GpEf8CHMc/A3Dq5AAvHuik5WX9y0WrEPpwiUfvRC2XbKxm6A5t+AAAAAElFTkSuQmCC"/></div>
+          <div class="title-icon">Hotel</div>
+          <div class="">BigHotel</div>
+          <div class="">Lara's Hotels</div>
+          <div class="">Hotel</div>
+        </div>
+        <!-- <div class="stepper-item">
+          <div class="step-counter">4</div>
+          <div class="step-name">Forth</div>
+        </div> -->
+      </div>
+      <!-- 1 -->
+</body>
+</html>
